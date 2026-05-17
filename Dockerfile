@@ -30,7 +30,8 @@ COPY --from=builder /app/.output ./.output
 
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
+ENV PORT=3001
 
-EXPOSE 80
+EXPOSE 3001
 
 CMD ["bun", "run", ".output/server/index.mjs"]

@@ -1,7 +1,7 @@
 services:
   frontend:
     container_name: ${PROJECT_NAME}-frontend
-    image: ${PROJECT_NAME}-frontend:latest
+    image: ${PROJECT_NAME}-frontend-dev:latest
     build:
       context: .
       target: development
@@ -15,6 +15,7 @@ services:
       - global_dev_net
     labels:
       caddy: ${DOMAIN}
+      caddy_network: global_dev_net
       caddy.tls: internal
       caddy.reverse_proxy: "{{upstreams 3000}}"
 
